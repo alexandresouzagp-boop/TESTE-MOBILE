@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches:
-      - main
+      - principal
   workflow_dispatch:
 
 jobs:
@@ -28,16 +28,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd flutter_led_control
+          cd "controle de LED de flutter"
           flutter pub get
 
       - name: Build APK
         run: |
-          cd flutter_led_control
+          cd "controle de LED de flutter"
           flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: flutter_led_control/build/app/outputs/flutter-apk/app-release.apk
+          path: "controle de LED de flutter/build/app/outputs/flutter-apk/app-release.apk"
