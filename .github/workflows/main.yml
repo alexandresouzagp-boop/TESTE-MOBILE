@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -28,16 +28,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd "controle de LED de flutter"
+          cd flutter_led_control
           flutter pub get
 
       - name: Build APK
         run: |
-          cd "controle de LED de flutter"
+          cd flutter_led_control
           flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: "controle de LED de flutter/build/app/outputs/flutter-apk/app-release.apk"
+          path: flutter_led_control/build/app/outputs/flutter-apk/app-release.apk
